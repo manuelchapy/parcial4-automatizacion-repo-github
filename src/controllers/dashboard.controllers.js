@@ -175,11 +175,16 @@ dashboardCtrl.deconstrucciondataGraficoUsoTiempo = async (req, res) => {
           }
       }
     }
-    dataGrafico.series.push({reactivo_nombre: reactivo.reactivo_nombre}, {data: data})
+    dataGrafico.series.push({name: reactivo.reactivo_nombre, data: data})
+  }
+  dataGrafico = {
+    ...dataGrafico,
+    tiempos: duracionReactivosVector
   }
   //eliminar_pagos.map(({id_registro_pago}) => [id_registro_pago])
   //console.log(usoReactivos)
   //console.log(duracionReactivosVector)
+  console.log(dataGrafico)
   res.send(dataGrafico)
 }
 
